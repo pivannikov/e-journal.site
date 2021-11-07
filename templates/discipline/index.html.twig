@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}All disciplines{% endblock %}
+{% block content %}
+    All disciplines
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titile</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Select</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for discipline in disciplines %}
+                <tr>
+                    <td>{{ discipline.id }}</th>
+                    <td><a href="{{ path('discipline', {slug: discipline.slug}) }}">{{ discipline.title }}</a></td>
+                    <td><a class="btn btn-success btn-sm" href="#" role="button">edit</a></td>
+                    <td><a class="btn btn-danger btn-sm" href="#" role="button">delete</a></td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="discipline_{{ discipline.slug }}" id="discipline_{{ discipline.slug }}">
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

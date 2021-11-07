@@ -1,3 +1,54 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+main:
+    path: /
+    controller: App\Controller\MainController::index
+
+all_disciplines:
+    path: /disciplines
+    controller: App\Controller\DisciplineController::index
+
+discipline:
+    path: /discipline/show/{slug}
+    controller: App\Controller\DisciplineController::show
+
+add_discipline:
+    path: /discipline/add
+    controller: App\Controller\DisciplineController::addDiscipline
+
+all_students:
+    path: /students
+    controller: App\Controller\StudentController::index
+
+student:
+    path: /student/show/{id}
+    controller: App\Controller\StudentController::show
+    requirements:
+        page: '\d+'
+
+add_student:
+    path: /student/add
+    controller: App\Controller\StudentController::addStudent
+
+update_student:
+    path: /student/update/{id}
+    controller: App\Controller\StudentController::update
+    requirements:
+        page: '\d+'
+
+delete_student:
+    path: /student/delete/{id}
+    controller: App\Controller\StudentController::delete
+    requirements:
+        page: '\d+'
+
+
+all_groups:
+    path: /groups
+    controller: App\Controller\GroupController::index
+
+group:
+    path: /group/show/{id}
+    controller: App\Controller\GroupController::show
+
+add_group:
+    path: /group/add
+    controller: App\Controller\GroupController::addGroup
